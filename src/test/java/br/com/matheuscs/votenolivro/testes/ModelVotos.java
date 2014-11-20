@@ -9,8 +9,8 @@ import br.com.matheuscs.votenolivro.model.ComputaVotosInterface;
 public class ModelVotos {
 
 	/*
-	 * Dá 3 votos em um mesmo livro e verifica se o sorteio
-	 * está finalizado
+	 * Da 3 votos em um mesmo livro e verifica se o sorteio
+	 * esta finalizado
 	 */
 	@Test
 	public void verificaFinalizado() {

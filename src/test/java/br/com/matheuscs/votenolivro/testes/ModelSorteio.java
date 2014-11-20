@@ -9,8 +9,8 @@ import br.com.matheuscs.votenolivro.model.ComputaVotosInterface;
 public class ModelSorteio {
 
 	/*
-	 * Verifica se em nenhuma hipósteses está sorteando livro null ou
-	 * se está sorteando livros repetidos
+	 * Verifica se em nenhuma hiposteses esta sorteando livro null ou
+	 * se esta sorteando livros repetidos
 	 */
 	@Test
 	public void sorteiaInumeros() {
@@ -25,7 +25,7 @@ public class ModelSorteio {
 
 	/*
 	 * Sorteia um adversario para um mesmo livo.
-	 * O livro escolhido (não-sorteado) será votado por 3 vezes consecutivas,
+	 * O livro escolhido (nao-sorteado) sera votado por 3 vezes consecutivas,
 	 * e consequentemente deve ser eleito o vencedor
 	 */
 	@Test

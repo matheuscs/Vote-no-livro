@@ -8,7 +8,7 @@ import br.com.matheuscs.votenolivro.model.ComputaVotos;
 public class Model {
 
 	/*
-	 * Verifica se a quantidade de livros participantes da aplicação é aquele
+	 * Verifica se a quantidade de livros participantes da aplicacao eh aquele
 	 * exigido no enunciado: 5
 	 */
 	@Test

@@ -10,9 +10,17 @@ import br.com.matheuscs.votenolivro.model.ComputaVotosInterface;
 
 @Controller
 public class VotesController {
+	
 	private ComputaVotosInterface model;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	public VotesController() {
+		super();
+		
+	}
+
+
+
 	@RequestMapping(value="/votacao", method = RequestMethod.GET)
 	public String a() {
 		return "email";

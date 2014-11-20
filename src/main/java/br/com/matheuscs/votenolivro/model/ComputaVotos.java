@@ -34,7 +34,7 @@ public class ComputaVotos implements ComputaVotosInterface {
 	}
 
 	/*
-	 * Retorna todos os livros disponíveis para sorteio
+	 * Retorna todos os livros disponiveis para sorteio
 	 */
 	@Override
 	public List<String> todosOsLivros() {
@@ -43,11 +43,11 @@ public class ComputaVotos implements ComputaVotosInterface {
 
 	/*
 	 * Sorteia um livro, desde que ele atenda os criterios:
-	 *  - Já não esteja sorteado para a comparação atual
-	 *  - Possua a menor quantidade de visualizações dentre todos
+	 *  - Ja nao esteja sorteado para a comparacao atual
+	 *  - Possua a menor quantidade de visualizacoes dentre todos
 	 *  
-	 *  Isso garante que todos os livros serão exibidos ao menos uma vez, e
-	 *  nunca um livro terá sido exibido mais que duas vezes do que o menos
+	 *  Isso garante que todos os livros serao exibidos ao menos uma vez, e
+	 *  nunca um livro tera sido exibido mais que duas vezes do que o menos
 	 *  exibido
 	 */
 	@Override
@@ -98,7 +98,7 @@ public class ComputaVotos implements ComputaVotosInterface {
 	}
 
 	/*
-	 * Verifica se já deu a quantidade máxima de votos que deveria
+	 * Verifica se ja deu a quantidade maxima de votos que deveria
 	 * 
 	 */
 	@Override
