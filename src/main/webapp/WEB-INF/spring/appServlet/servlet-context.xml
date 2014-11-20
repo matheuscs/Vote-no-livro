@@ -21,8 +21,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="br.com.matheuscs.votenolivro.controller" />
-	
-	
+	<context:component-scan base-package="br.com.matheuscs.votenolivro" />
 	
 </beans:beans>
