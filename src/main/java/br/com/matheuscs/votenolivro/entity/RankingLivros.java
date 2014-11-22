@@ -1,4 +1,4 @@
-package br.com.matheuscs.votenolivro.model;
+package br.com.matheuscs.votenolivro.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +10,7 @@ public class RankingLivros {
 	private int idRanking;
 	private String titulo;
 	private int votos;
-	private String nomes;
+	private String nome;
 	private String email;
 	
 	public RankingLivros() {
@@ -41,12 +41,12 @@ public class RankingLivros {
 		this.votos = votos;
 	}
 
-	public String getNomes() {
-		return nomes;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomes(String nomes) {
-		this.nomes = nomes;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEmail() {
