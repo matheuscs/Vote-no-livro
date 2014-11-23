@@ -55,7 +55,8 @@
 		</property>
 	</bean>
 
-	<!-- Meus beans -->
-	<bean id="computaVotos" class="br.com.matheuscs.votenolivro.model.ComputaVotos" />
+	<bean id="computaVotos" class="br.com.matheuscs.votenolivro.model.ComputaVotos">
+		<constructor-arg name="livroDao" ref="livroDao" />
+	</bean>
 
 </beans>

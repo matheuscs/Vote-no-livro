@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.matheuscs.votenolivro.entity.Livro;
 
 @Repository("livroDao")
-@Transactional
+@Transactional 
 public class LivroDAOImpl implements LivroDAO {
 
 	@Autowired
@@ -23,7 +23,6 @@ public class LivroDAOImpl implements LivroDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	@Transactional(readOnly=true)
 	public List<Livro> getTodosLivros() {
 		System.out.println("SessionFactory: " + sessionFactory + "; Session:" + sessionFactory.getCurrentSession());
 		return sessionFactory.getCurrentSession().createQuery("from Livro l").list();

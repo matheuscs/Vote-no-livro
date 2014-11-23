@@ -1,19 +1,14 @@
 package br.com.matheuscs.votenolivro.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.com.matheuscs.votenolivro.dao.LivroDAO;
 import br.com.matheuscs.votenolivro.entity.Livro;
 
-@Service("computaVotos")
 public class ComputaVotos implements ComputaVotosInterface {
 
 	private static final int VOTOS_GANHADOR = 3;
@@ -24,19 +19,17 @@ public class ComputaVotos implements ComputaVotosInterface {
 	private int maxVotos;
 	private int minParticipacao;
 	
-	@Autowired
 	public ComputaVotos(LivroDAO livroDao) {
-		super();
-		titulos = Arrays.asList("ads", "sassds", "DF", "4", "5");
-		/*
+		System.out.println("Livro dao:" + livroDao);
 		for(Livro l: livroDao.getTodosLivros()) {
 			titulos.add(l.getTitulo());
-		}*/
+		}
 		for(String s: titulos) {
 			participacao.put(s, 0);
 		}
-		resultado.putAll(participacao);
+		resultado.putAll(participacao);		
 	}
+
 
 	/*
 	 * Retorna todos os livros disponiveis para sorteio
