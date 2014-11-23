@@ -9,4 +9,6 @@ public interface ComputaVotosInterface {
 	void somaVoto(String titulo);
 	Map<String, Integer> pegaResultado();
 	boolean finalizado();
+	void consolidaVotosNoRanking();
+	Map<String, Integer> pegaTodosOsResultados();
 }

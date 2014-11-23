@@ -21,10 +21,25 @@ public class LivroDAOImpl implements LivroDAO {
 		sessionFactory.getCurrentSession().saveOrUpdate(livro);
 	}
 
+	@Override
+	public Livro getLivro(int id) {
+		Livro livro = (Livro) sessionFactory.getCurrentSession()
+				.createQuery("from Livro l where id=:id")
+				.setParameter("id", id).list().get(0);
+		return livro;		
+	}
+
+	@Override
+	public Livro getLivro(String arquivo) {
+		Livro livro = (Livro) sessionFactory.getCurrentSession()
+				.createQuery("from Livro l where arquivo=:arquivo")
+				.setParameter("arquivo", arquivo).list().get(0);
+		return livro;		
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Livro> getTodosLivros() {
-		System.out.println("SessionFactory: " + sessionFactory + "; Session:" + sessionFactory.getCurrentSession());
 		return sessionFactory.getCurrentSession().createQuery("from Livro l").list();
 	}
 

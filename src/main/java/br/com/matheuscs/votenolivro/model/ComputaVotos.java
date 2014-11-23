@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.matheuscs.votenolivro.dao.LivroDAO;
+import br.com.matheuscs.votenolivro.dao.VotosLivroDAO;
 import br.com.matheuscs.votenolivro.entity.Livro;
+import br.com.matheuscs.votenolivro.entity.VotosLivro;
 
 public class ComputaVotos implements ComputaVotosInterface {
 
@@ -19,7 +21,12 @@ public class ComputaVotos implements ComputaVotosInterface {
 	private int maxVotos;
 	private int minParticipacao;
 
-	public ComputaVotos(LivroDAO livroDao) {
+	VotosLivroDAO votosLivroDao;
+	LivroDAO livroDao;
+	
+	public ComputaVotos(VotosLivroDAO votosLivroDao, LivroDAO livroDao) {
+		this.votosLivroDao = votosLivroDao;
+		this.livroDao = livroDao;
 		for(Livro l: livroDao.getTodosLivros()) {
 			arquivos.add(l.getArquivo());
 		}
@@ -28,8 +35,6 @@ public class ComputaVotos implements ComputaVotosInterface {
 		}
 		resultado.putAll(participacao);		
 	}
-
-
 	/*
 	 * Retorna todos os livros disponiveis para sorteio
 	 */
@@ -92,7 +97,12 @@ public class ComputaVotos implements ComputaVotosInterface {
 	 */	
 	@Override
 	public Map<String, Integer> pegaResultado() {
-		return resultado;
+		Map<String, Integer> votos = new HashMap<String, Integer>();
+		for(Map.Entry<String, Integer> map: resultado.entrySet()) {
+			String titulo = livroDao.getLivro(map.getKey()).getTitulo();
+			votos.put(titulo, map.getValue());
+		}
+		return votos;
 	}
 
 	/*
@@ -109,4 +119,37 @@ public class ComputaVotos implements ComputaVotosInterface {
 			return false;
 		}
 	}
+
+	/*
+	 * Adiciona o resultado da votacao da sessao atual na
+	 * tabela de votos
+	 * 
+	 */
+	@Override
+	public void consolidaVotosNoRanking() {
+		List<VotosLivro> votos = new ArrayList<VotosLivro>();
+		for(Map.Entry<String, Integer> map: resultado.entrySet()) {
+			VotosLivro v = new VotosLivro();
+			Livro l = livroDao.getLivro(map.getKey());
+			v.setId(l.getId());
+			v.addVotos(map.getValue());
+			votos.add(v);
+		}
+		votosLivroDao.atualizaVotos(votos);		
+	}
+
+	/*
+	 * retorna todos os votos do raking, incluindo os votos
+	 * de outros participantes
+	 */
+	@Override
+	public Map<String, Integer> pegaTodosOsResultados() {
+		Map<String, Integer> todosVotos = new HashMap<String, Integer>();
+		for(VotosLivro v: votosLivroDao.getTodosOsVotos()) {
+			String titulo = livroDao.getLivro(v.getId()).getTitulo();
+			todosVotos.put(titulo, v.getVotos());
+		}
+		return todosVotos;
+	}		
+	
 }

@@ -7,19 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>Obrigado por votar nos livros!</p>
-	<table>
-		<tr>
-			<td>Nome:</td>
-			<td><input type="text"/></td>
-		</tr>
-		<tr>
-			<td>Email:</td>
-			<td><input type="text"/></td>
-		</tr>
-		<tr>
-			<th colspan="2"><input type="submit" value="Enviar"/></th>
-		</tr>
-	</table>
+	<form method=GET action=ranking>
+		<p>Obrigado por votar nos livros! Para verificar o ranking dos
+			livros mais votados, e o seu resultado, preencha nome e email abaixo
+			e clique em Enviar.</p>
+		<table>
+			<tr>
+				<td>Email:</td>
+				<td><input type="text" /></td>
+			</tr>
+			<tr>
+				<td>Nome:</td>
+				<td><input type="text" /></td>
+			</tr>
+			<tr>
+				<th colspan="2"><input type="submit" value="Enviar" /></th>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>
