@@ -12,19 +12,18 @@ import br.com.matheuscs.votenolivro.entity.Livro;
 public class ComputaVotos implements ComputaVotosInterface {
 
 	private static final int VOTOS_GANHADOR = 3;
-	
-	private List<String> titulos = new ArrayList<String>();
+
+	private List<String> arquivos = new ArrayList<String>();
 	private Map<String, Integer> participacao = new HashMap<String, Integer>();
 	private Map<String, Integer> resultado = new HashMap<String, Integer>();
 	private int maxVotos;
 	private int minParticipacao;
-	
+
 	public ComputaVotos(LivroDAO livroDao) {
-		System.out.println("Livro dao:" + livroDao);
 		for(Livro l: livroDao.getTodosLivros()) {
-			titulos.add(l.getTitulo());
+			arquivos.add(l.getArquivo());
 		}
-		for(String s: titulos) {
+		for(String s: arquivos) {
 			participacao.put(s, 0);
 		}
 		resultado.putAll(participacao);		
@@ -36,7 +35,7 @@ public class ComputaVotos implements ComputaVotosInterface {
 	 */
 	@Override
 	public List<String> todosOsLivros() {
-		return titulos;
+		return arquivos;
 	}
 
 	/*
@@ -49,23 +48,23 @@ public class ComputaVotos implements ComputaVotosInterface {
 	 *  exibido
 	 */
 	@Override
-	public String sorteiaLivro(String titulo) {
-		Collections.shuffle(titulos);
-		for(int i=0; i<titulos.size(); i++) {
-			String sorteado = titulos.get(i);
-			if(sorteado.equals(titulo)) {
+	public String sorteiaLivro(String arquivo) {
+		Collections.shuffle(arquivos);
+		for(int i=0; i<arquivos.size(); i++) {
+			String sorteado = arquivos.get(i);
+			if(sorteado.equals(arquivo)) {
 				continue;
 			}
 			if(participacao.get(sorteado) == minParticipacao) {
 				participacao.put(sorteado, minParticipacao+1);
-				
+
 				minParticipacao = Integer.MAX_VALUE;
 				for(Map.Entry<String, Integer> map: participacao.entrySet()) {
 					if(map.getValue() < minParticipacao) {
 						minParticipacao = map.getValue() ;
 					}
 				}
-				return titulos.get(i);
+				return arquivos.get(i);
 			}
 		}
 		return null;
@@ -87,7 +86,7 @@ public class ComputaVotos implements ComputaVotosInterface {
 			resultado.put(titulo, i);
 		}
 	}
-	
+
 	/*
 	 * Retorna todos os registros do BD
 	 */	

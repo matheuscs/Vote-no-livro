@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class Livro {
 
 	private int id;
+	private String arquivo;
 	private String titulo;
 
 	@Id
@@ -24,18 +25,27 @@ public class Livro {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
+	public String getArquivo() {
+		return arquivo;
+	}
+
+	public void setArquivo(String arquivo) {
+		this.arquivo = arquivo;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
-	
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
 	@Override
 	public String toString() {
-		return "Livro [id=" + id + ", titulo=" + titulo + "]";
+		return "Livro [id=" + id + ", arquivo=" + arquivo + ", titulo="
+				+ titulo + "]";
 	}
 		
 }
