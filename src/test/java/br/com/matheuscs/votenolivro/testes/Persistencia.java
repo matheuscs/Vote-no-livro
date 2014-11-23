@@ -12,30 +12,20 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.matheuscs.votenolivro.dao.LivroDAO;
 import br.com.matheuscs.votenolivro.dao.LivroDAOImpl;
 import br.com.matheuscs.votenolivro.entity.Livro;
 
-@ContextConfiguration
-//@RunWith(SpringJUnit4ClassRunner.class)
-public class OrderPersistenceTests {
+public class Persistencia {
 
-	@Autowired
-	private SessionFactory sessionFactory;
-
-	/*
 	@Test
 	@Transactional
-	public void testSaveOrderWithItems() throws Exception {
-		Session session = sessionFactory.getCurrentSession();
-		Livro l = new Livro();
-		l.setIdLivro(1);
-		l.setTitulo("Harry");
-		LivroDAOImpl dao = new LivroDAOImpl();
-		dao.addLivro(l);
-		session.save(l);
-		session.flush();
-		assertNotNull(l.getIdLivro());
-	}*/
+	public void lerTodos() throws Exception {
+		LivroDAO dao = new LivroDAOImpl();
+		System.out.println(dao.getTodosLivros());
+	}
+	
+
 
 	@Test
 	@Transactional

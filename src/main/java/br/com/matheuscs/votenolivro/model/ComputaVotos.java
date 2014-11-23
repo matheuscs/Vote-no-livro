@@ -1,35 +1,40 @@
 package br.com.matheuscs.votenolivro.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.matheuscs.votenolivro.dao.LivroDAO;
+import br.com.matheuscs.votenolivro.entity.Livro;
+
+@Service("computaVotos")
 public class ComputaVotos implements ComputaVotosInterface {
 
-	private static final List<String> titulos = Arrays.asList(
-			"Harry Potter", 
-			"Senhor dos Aneis",
-			"Guia do Mochileiro das Galaxias",
-			"Doctor Who",
-			"Viagem ao Centro da Terra");
-	
 	private static final int VOTOS_GANHADOR = 3;
 	
-	private static Map<String, Integer> participacao;
-	private static Map<String, Integer> resultado;
+	private List<String> titulos = new ArrayList<String>();
+	private Map<String, Integer> participacao = new HashMap<String, Integer>();
+	private Map<String, Integer> resultado = new HashMap<String, Integer>();
 	private int maxVotos;
 	private int minParticipacao;
 	
-	public ComputaVotos() {
+	@Autowired
+	public ComputaVotos(LivroDAO livroDao) {
 		super();
-		participacao = new HashMap<String, Integer>();
+		titulos = Arrays.asList("ads", "sassds", "DF", "4", "5");
+		/*
+		for(Livro l: livroDao.getTodosLivros()) {
+			titulos.add(l.getTitulo());
+		}*/
 		for(String s: titulos) {
 			participacao.put(s, 0);
 		}
-		resultado = new TreeMap<String, Integer>();
 		resultado.putAll(participacao);
 	}
 
@@ -78,6 +83,7 @@ public class ComputaVotos implements ComputaVotosInterface {
 	 */
 	@Override
 	public void somaVoto(String titulo) {
+		System.out.println("Soma voto:" + titulo);
 		if(resultado.containsKey(titulo)) {
 			int i = resultado.get(titulo);
 			System.out.println(i);
@@ -103,6 +109,7 @@ public class ComputaVotos implements ComputaVotosInterface {
 	 */
 	@Override
 	public boolean finalizado() {
+		System.out.println("Maxvotos:" + maxVotos);
 		if(maxVotos >= VOTOS_GANHADOR) {
 			return true;
 		}

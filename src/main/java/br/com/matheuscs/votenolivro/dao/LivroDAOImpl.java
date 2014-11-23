@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.matheuscs.votenolivro.entity.Livro;
 
-@Repository("livroDAO")
+@Repository("livroDao")
 @Transactional
 public class LivroDAOImpl implements LivroDAO {
 
@@ -25,6 +25,7 @@ public class LivroDAOImpl implements LivroDAO {
 	@Override
 	@Transactional(readOnly=true)
 	public List<Livro> getTodosLivros() {
+		System.out.println("SessionFactory: " + sessionFactory + "; Session:" + sessionFactory.getCurrentSession());
 		return sessionFactory.getCurrentSession().createQuery("from Livro l").list();
 	}
 

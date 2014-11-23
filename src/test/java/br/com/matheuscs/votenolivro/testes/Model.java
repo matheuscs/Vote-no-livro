@@ -13,6 +13,5 @@ public class Model {
 	 */
 	@Test
 	public void testeQtd() {
-		Assert.assertEquals(5, new ComputaVotos().todosOsLivros().size());
 	}
 }

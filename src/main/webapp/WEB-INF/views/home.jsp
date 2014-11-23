@@ -5,11 +5,11 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>Hello world!</h1>
-	<P>The time on the server is ${serverTime}.</P>
+	<h1>Olá</h1>
+	<P>Que tal participar da nossa votação para saber qual é o livro preferido dentre a lista?</P>
 	<form method=GET action="votacao">
 		<p>
-			<input type="submit" value="Pressione aqui para ir para outra pagina" />
+			<input type="submit" value="Ir para votação" />
 		</p>
 	</form>
 </body>
