@@ -27,16 +27,17 @@
 		<input type="hidden" name="livroEscolhido" />
 	</form>
 	<script>
-	$(document).ready(function(){
-		$("#livro1").click(function(){
-			alert('liv1');
-			$('input[name=livroEscolhido]').val($('#livro1')[0].name);
-		    $("#form").submit();
-		});
-		$("#livro2").click(function(){
-			$('input[name=livroEscolhido]').val($('#livro2')[0].name);
-		    $("#form").submit();
-		});
+	$('#livro1').on("click", function (e) {
+		e.preventDefault();
+		alert($('#livro1')[0].name);
+		$('input[name=livroEscolhido]').val($('#livro1')[0].name);
+		$("#form").submit();
+	});
+	$('#livro2').on("click", function (e) {
+		e.preventDefault();
+		alert($('#livro2')[0].name);
+		$('input[name=livroEscolhido]').val($('#livro2')[0].name);
+		$("#form").submit();
 	});
 	</script>
 </body>
