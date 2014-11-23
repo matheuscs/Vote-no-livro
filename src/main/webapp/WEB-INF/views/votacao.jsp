@@ -6,29 +6,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 	<form method=GET action="votacao" id="form">
 		<p>Escolha seu livro preferido dentre as opções abaixo:</p>
 		<table>
 			<tr>
-				<td><a href="javascript:clickLivro('${livro1}');"> <c:url
-							value="/resources/images/${livro1}.jpg" var="imagem1" /> <img
-						src="${imagem1}" />
-				</a></td>
-				<td><a href="javascript:clickLivro('${livro2}');"> <c:url
-							value="/resources/images/${livro2}.jpg" var="imagem2" /> <img
-						src="${imagem2}" />
-				</a></td>
+				<td>
+					<c:url value="/resources/images/${livro1}.jpg" var="imagem1" />
+					<img id='livro1' src='${imagem1}' name='${livro1}' style='cursor: pointer;' />
+				</td>
+				<td>
+					<c:url value="/resources/images/${livro2}.jpg" var="imagem2" />
+				    <img id='livro2' src='${imagem2}' name='${livro2}' style='cursor: pointer;' />
+				</td>
 			</tr>
 		</table>
-		<input type="hidden" name="livroEscolhido"/>
+		<input type="hidden" name="livroEscolhido" />
 	</form>
 	<script>
-		function clickLivro(livro) {
-			form.livroEscolhido.value = (livro);
-			form.submit();
-		}
+	$(document).ready(function(){
+		$("#livro1").click(function(){
+			$('input[name=livroEscolhido]').val($('#livro1')[0].name);
+		    $("#form").submit();
+		});
+		$("#livro2").click(function(){
+			$('input[name=livroEscolhido]').val($('#livro2')[0].name);
+		    $("#form").submit();
+		});
+	});
 	</script>
 </body>
 </html>
