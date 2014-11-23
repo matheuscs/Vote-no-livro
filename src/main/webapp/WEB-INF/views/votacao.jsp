@@ -16,29 +16,25 @@
 			<tr>
 				<td>
 					<c:url value="/resources/images/${livro1}.jpg" var="imagem1" />
-					<img id='livro1' src='${imagem1}' name='${livro1}' style='cursor: pointer;' />
+					<img id='livro1' src='${imagem1}' name='${livro1}' style='cursor: pointer;' onclick='enviaLivro1()' />
 				</td>
 				<td>
 					<c:url value="/resources/images/${livro2}.jpg" var="imagem2" />
-				    <img id='livro2' src='${imagem2}' name='${livro2}' style='cursor: pointer;' />
+				    <img id='livro2' src='${imagem2}' name='${livro2}' style='cursor: pointer;' onclick='enviaLivro2()' />
 				</td>
 			</tr>
 		</table>
-		<input type="hidden" name="livroEscolhido" />
+		<input type="hidden" id="livroEscolhido" name="livroEscolhido"/>
 	</form>
 	<script>
-	$('#livro1').on("click", function (e) {
-		e.preventDefault();
-		alert($('#livro1')[0].name);
-		$('input[name=livroEscolhido]').val($('#livro1')[0].name);
-		$("#form").submit();
-	});
-	$('#livro2').on("click", function (e) {
-		e.preventDefault();
-		alert($('#livro2')[0].name);
-		$('input[name=livroEscolhido]').val($('#livro2')[0].name);
-		$("#form").submit();
-	});
+	function enviaLivro1() {
+		document.getElementById('livroEscolhido').value = document.getElementById('livro1').name;
+		document.getElementById('form').submit();
+	}
+	function enviaLivro2() {
+		document.getElementById('livroEscolhido').value = document.getElementById('livro2').name;
+		document.getElementById('form').submit();
+	}
 	</script>
 </body>
 </html>
