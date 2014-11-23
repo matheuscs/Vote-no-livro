@@ -29,6 +29,7 @@
 	<script>
 	$(document).ready(function(){
 		$("#livro1").click(function(){
+			alert('liv1');
 			$('input[name=livroEscolhido]').val($('#livro1')[0].name);
 		    $("#form").submit();
 		});
