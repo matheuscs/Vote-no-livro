@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Vote no Livro - Math</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+<link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
 </head>
 <body>
 	<h3>Seus votos</h3>

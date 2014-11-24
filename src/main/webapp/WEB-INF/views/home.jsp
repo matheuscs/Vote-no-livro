@@ -3,8 +3,7 @@
 <html>
 <head>
 <title>Vote no Livro - Math</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css" />
-
+<link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
 </head>
 <body>
 	<h1>Olá</h1>
