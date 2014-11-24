@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Vote no Livro - Math</title>
-<link href=http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.3.0.2.min.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
 </head>
 <body>
