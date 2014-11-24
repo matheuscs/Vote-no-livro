@@ -23,7 +23,7 @@ public class VotesController {
 		super();
 	}
 
-	@RequestMapping(value="/votacao", method = RequestMethod.GET)
+	@RequestMapping(value="/votacao", method = RequestMethod.POST)
 	public String votacao(Model model, String livroEscolhido) {
 		System.out.println("Livro escolhido: " + livroEscolhido);
 		if(livroEscolhido != null) {

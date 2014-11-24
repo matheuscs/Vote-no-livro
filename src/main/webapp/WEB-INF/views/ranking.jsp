@@ -6,27 +6,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Vote no Livro - Math</title>
-<link href="<c:url value="/resources/css/bootstrap.3.0.2.min.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.3.0.2.min.css" />"
+	rel="stylesheet">
 </head>
 <body>
-	<h3>Seus votos</h3>
-	<table>
-		<c:forEach items="${votos}" var="voto">
-			<tr>
-				<td>${voto.key}</td>
-				<td>${voto.value}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<h3>Votos totais</h3>
-	<table>
-		<c:forEach items="${todosOsVotos}" var="voto">
-			<tr>
-				<td>${voto.key}</td>
-				<td>${voto.value}</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<div class="container">
+		<div class="row">
+			<h3>Seus votos</h3>
+			<table>
+				<c:forEach items="${votos}" var="voto">
+					<tr>
+						<td>${voto.key}</td>
+						<td>${voto.value}</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<h3>Votos totais</h3>
+			<table>
+				<c:forEach items="${todosOsVotos}" var="voto">
+					<tr>
+						<td>${voto.key}</td>
+						<td>${voto.value}</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

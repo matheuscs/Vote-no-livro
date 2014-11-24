@@ -14,7 +14,7 @@ public class RankingController {
 	@Autowired
 	private ComputaVotosInterface computaVotos;
 	
-	@RequestMapping(value="/ranking", method=RequestMethod.GET) 
+	@RequestMapping(value="/ranking", method=RequestMethod.POST) 
 	public String mostraRanking(Model model) {
 		computaVotos.consolidaVotosNoRanking();
 		model.addAttribute("votos", computaVotos.pegaResultado());

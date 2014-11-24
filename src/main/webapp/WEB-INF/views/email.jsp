@@ -6,74 +6,78 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Vote no Livro - Math</title>
-<link
-	href="<c:url value="/resources/js/bootstrap.3.1.1.min.js" />"
+<link href="<c:url value="/resources/js/bootstrap.3.1.1.min.js" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/css/bootstrap.3.0.2.min.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
-
+<link href="<c:url value="/resources/css/bootstrap.3.0.2.min.css" />"
+	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery.1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.3.1.1.min.js" />"></script>
 </head>
-<body>
-	<form id="emailForm" method=GET action=ranking>
 
-		<div class="container">
-			<p>Obrigado por votar! Para verificar o ranking dos livros mais
-				votados e o seu resultado, preencha nome e email abaixo e clique em
-				Enviar.</p>
-			<div class="form-group">
-				<label for="email">Email</label> <input type="email"
-					class="form-control" id="email" placeholder="Digite seu email">
+<body>
+	<br />
+	<div class="container">
+		<form method="post" action="ranking" role="form" id="email-form">
+			<div class="row">
+				<div class="form-group col-xs-5 col-lg-5">
+					<p>Obrigado por votar! Para verificar o ranking dos livros mais
+						votados e o seu resultado, preencha nome e email abaixo e clique
+						em Enviar.</p>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="name">Nome</label> <input type="text"
-					class="form-control" id="name" placeholder="Digite seu nome">
+			<div class="row">
+				<div class="form-group col-xs-5 col-lg-3">
+					<label class="control-label" for="email">Email</label> <input
+						type="email" id="email" placeholder="Digite seu email"
+						class="form-control">
+				</div>
 			</div>
-			<input type="submit" value="Enviar"/>
-		</div>
-	</form>
+			<div class="row">
+				<div class="form-group col-xs-5 col-lg-3">
+					<label class="control-label" for="name">Nome</label> <input
+						type="text" id="name" placeholder="Digite seu nome"
+						class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-5 col-lg-1">
+					<input type="submit" value="Enviar" />
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 <script>
-$(document).ready(function() {
-	alert('sdf');
-    $('.registerForm').bootstrapValidator({
-        message: 'This value is not valid',
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            username: {
-                message: 'The username is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required and cannot be empty'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'The username must be more than 6 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_]+$/,
-                        message: 'The username can only consist of alphabetical, number and underscore'
-                    }
-                }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'The email is required and cannot be empty'
-                    },
-                    emailAddress: {
-                        message: 'The input is not a valid email address'
-                    }
-                }
-            }
-        }
-    });
-});
+	$(document).ready(
+			function() {
+				$('#email-form').validate(
+						{
+							rules : {
+								name : {
+									minlength : 2,
+									required : true
+								},
+								email : {
+									required : true,
+									email : true
+								},
+								message : {
+									minlength : 2,
+									required : true
+								}
+							},
+							highlight : function(element) {
+								$(element).closest('.control-group')
+										.removeClass('success').addClass(
+												'error');
+							},
+							success : function(element) {
+								element.text('OK!').addClass('valid').closest(
+										'.control-group').removeClass('error')
+										.addClass('success');
+							}
+						});
+
+			});
 </script>
 </html>
