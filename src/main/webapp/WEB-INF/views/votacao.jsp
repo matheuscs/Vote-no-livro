@@ -5,14 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Vote no Livro - Math</title>
+<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 	<form method=GET action="votacao" id="form">
-		<p>Escolha seu livro preferido dentre as opções abaixo:</p>
-		<table>
+		<p>Escolha seu livro preferido dentre as duas opções abaixo:</p>
+		<table cellpadding="10">
 			<tr>
 				<td>
 					<c:url value="/resources/images/${livro1}.jpg" var="imagem1" />

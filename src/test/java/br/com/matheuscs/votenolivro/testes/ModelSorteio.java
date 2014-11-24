@@ -1,26 +1,39 @@
 package br.com.matheuscs.votenolivro.testes;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
+import br.com.matheuscs.votenolivro.dao.LivroDAO;
+import br.com.matheuscs.votenolivro.dao.VotosLivroDAO;
 import br.com.matheuscs.votenolivro.model.ComputaVotos;
 import br.com.matheuscs.votenolivro.model.ComputaVotosInterface;
+import br.com.matheuscs.votenolivro.testes.dao.LivroDAOImplMock;
+import br.com.matheuscs.votenolivro.testes.dao.VotosLivrosDAOMock;
 
 public class ModelSorteio {
 
+	private ComputaVotosInterface computaVotos;
+	
+	@Before
+	public void inicializaModel() {
+		LivroDAO livroDao = new LivroDAOImplMock();
+		VotosLivroDAO votosLivroDao = new VotosLivrosDAOMock();
+		computaVotos = new ComputaVotos(votosLivroDao, livroDao);
+	}
+	
 	/*
 	 * Verifica se em nenhuma hiposteses esta sorteando livro null ou
 	 * se esta sorteando livros repetidos
 	 */
 	@Test
 	public void sorteiaInumeros() {
-		/*ComputaVotosInterface model = new ComputaVotos();
 		for(int i=0; i<1000; i++) {
-			String titulo1 = model.sorteiaLivro(null);
+			String titulo1 = computaVotos.sorteiaLivro(null);
 			Assert.assertNotNull(titulo1);
-			String titulo2 = model.sorteiaLivro(titulo1);
+			String titulo2 = computaVotos.sorteiaLivro(titulo1);
 			Assert.assertNotSame(titulo1, titulo2);
-		}*/
+		}
 	}
 
 	/*
@@ -30,15 +43,14 @@ public class ModelSorteio {
 	 */
 	@Test
 	public void sorteiaAteFinalizar() {
-		/*ComputaVotosInterface model = new ComputaVotos();
-		String titulo1 = model.todosOsLivros().get(0);
+		String titulo1 = computaVotos.todosOsLivros().get(0);
 		Assert.assertNotNull(titulo1);
 		int i;
-		for(i=0; !model.finalizado(); i++) {
-			String titulo2 = model.sorteiaLivro(titulo1);
+		for(i=0; !computaVotos.finalizado(); i++) {
+			String titulo2 = computaVotos.sorteiaLivro(titulo1);
 			Assert.assertNotSame(titulo1, titulo2);
-			model.somaVoto(titulo1);
+			computaVotos.somaVoto(titulo1);
 		}
-		Assert.assertEquals(3, i);*/
+		Assert.assertEquals(3, i);
 	}
 }

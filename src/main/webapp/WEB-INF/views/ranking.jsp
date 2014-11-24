@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Vote no Livro - Math</title>
+<link rel="stylesheet" type="text/css" href="css/estilo.css" />
 </head>
 <body>
-	<p>Seus votos</p>
+	<h3>Seus votos</h3>
 	<table>
 		<c:forEach items="${votos}" var="voto">
 			<tr>
@@ -17,7 +18,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<p>Votos totais</p>
+	<h3>Votos totais</h3>
 	<table>
 		<c:forEach items="${todosOsVotos}" var="voto">
 			<tr>

@@ -4,12 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Vote no Livro - Math</title>
+<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+
 </head>
 <body>
 	<form method=GET action=ranking>
-		<p>Obrigado por votar nos livros! Para verificar o ranking dos
-			livros mais votados, e o seu resultado, preencha nome e email abaixo
+		<p>Obrigado por votar! Para verificar o ranking dos
+			livros mais votados e o seu resultado, preencha nome e email abaixo
 			e clique em Enviar.</p>
 		<table>
 			<tr>

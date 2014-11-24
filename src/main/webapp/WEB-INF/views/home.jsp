@@ -2,11 +2,13 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Home</title>
+<title>Vote no Livro - Math</title>
+<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+
 </head>
 <body>
 	<h1>Olá</h1>
-	<P>Que tal participar da nossa votação para saber qual é o livro preferido dentre a lista?</P>
+	<P>Que tal participar da nossa votação e nos dizer quais são seus livros favoritos da lista?</P>
 	<form method=GET action="votacao">
 		<p>
 			<input type="submit" value="Ir para votação" />
