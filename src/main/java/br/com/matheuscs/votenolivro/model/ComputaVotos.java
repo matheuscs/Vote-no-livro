@@ -26,14 +26,20 @@ public class ComputaVotos implements ComputaVotosInterface {
 	
 	public ComputaVotos(VotosLivroDAO votosLivroDao, LivroDAO livroDao) {
 		this.votosLivroDao = votosLivroDao;
-		this.livroDao = livroDao;
+		this.livroDao = livroDao;	
+		inicializa();
+	}
+	
+	private void inicializa() {
+		maxVotos = 0;
+		minParticipacao = 0;
 		for(Livro l: livroDao.getTodosLivros()) {
 			arquivos.add(l.getArquivo());
 		}
 		for(String s: arquivos) {
 			participacao.put(s, 0);
 		}
-		resultado.putAll(participacao);		
+		resultado.putAll(participacao);	
 	}
 	/*
 	 * Retorna todos os livros disponiveis para sorteio
@@ -149,6 +155,9 @@ public class ComputaVotos implements ComputaVotosInterface {
 			String titulo = livroDao.getLivro(v.getId()).getTitulo();
 			todosVotos.put(titulo, v.getVotos());
 		}
+		System.out.println("antes: " + maxVotos);
+		inicializa();
+		System.out.println("depois: " + maxVotos);
 		return todosVotos;
 	}		
 	
